@@ -1,7 +1,13 @@
 const express = require('express')
+const morgan = require('morgan')
 const app = express()
 
 app.use(express.json())
+
+morgan.token('content', (request) => {
+    return request.method === 'POST' ? JSON.stringify(request.body) : null
+})
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms :content'))
 
 let persons = [
     {
@@ -94,25 +100,3 @@ const PORT = 3001
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
 })
-
-/*
-app.post('/api/notes', (request, response) => {
-    const body = request.body
-
-    if (!body.content) {
-        return response.status(400).json({
-            error: 'content missing'
-        })
-    }
-
-    const note = {
-        content: body.content,
-        important: body.important || false,
-        date: new Date(),
-        id: generateId(),
-    }
-
-    persons = persons.concat(note)
-
-    response.json(note)
-})*/

@@ -6,7 +6,3 @@ Content-Type: application/json
   "name": "Martti Ahtisaari",
   "number": "040-1234567"
 }
-
-###
-
-GET http://localhost:3001/api/persons
