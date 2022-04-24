@@ -1,0 +1,8 @@
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+  "id": 123,
+  "name": "Martti Ahtisaari",
+  "number": "040-1234567"
+}
