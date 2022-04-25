@@ -5,9 +5,6 @@ if (process.argv.length < 3) {
     process.exit(1)
 }
 
-/*console.log('Please provide missing argument(s): node mongo.js <password>(required) <name>(optional) ' +
-    '<number>(optional, but required if name entered)')*/
-
 const password = process.argv[2]
 
 const url =
